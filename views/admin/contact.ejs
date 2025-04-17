@@ -1,0 +1,37 @@
+<%-include("navbar.ejs")%>
+
+
+<div class="container mt-5">
+    <div class="card shadow-lg p-4">
+        <h3 class="text-center mb-4">Manage Patient contact</h3>
+        <div class="tab-content mt-3">
+            <table class="table table-bordered">
+                <tr>
+                    <th>Contact</th>
+                    <th>Sr.No.</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Mobile</th>
+                    <th>Message</th>
+                </tr>
+                <%contact.map((row,i)=>{ %>
+                    <tr>
+                        <td>
+                            <a href="//wa.me/<%-row.mobile%>?text=Hello <%-row.full_name%>," target="_blank"><button class="btn btn-primary text-light"><i class="fa-brands fa-whatsapp"></i></button></a>
+                            <a href="tel:<%-row.mobile%>" target="_blank"><button class="btn btn-primary text-light"><i class="fa-solid fa-phone"></i></button></a>
+                          </td>
+                        <td><%-i+1%></td>
+                        <td><%-row.full_name%></td>
+                        <td><%-row.email%></td>
+                        <td><%-row.mobile%></td>
+                        <td><%-row.message%></td>
+                    </tr>
+                <% }) %>
+        </table>
+        </div>
+    </div>
+</div>
+
+
+
+<%-include("footer.ejs")%>

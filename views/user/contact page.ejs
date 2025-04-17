@@ -1,0 +1,65 @@
+<%-include("Navbar.ejs")%>
+    <!-- Navbar Placeholder (for dynamic content loading if needed) -->
+    <div class="about_banner" >
+        <img src="user_assets/images/slideB.jpg" class="d-block" alt="Slide 2 ">
+        <div class="carousel-caption d-md-block">
+            <h2 class="text">Contact Us</h2>
+            <p class="text">If you need more information contact us. Our team will be happy to assist you.</p>
+        </div>
+      </div>
+
+    <div class="container">
+        <!-- Contact Info Section -->
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-6 p-5 fs-5">
+                📍 <b>Address:</b><br>
+                First Floor, Opposite Shami Ganapati Mandir, Delhi Gate, Balikashram Road,<br>
+                Near Sindhu Mangal Karyalaya, Bhutkarwadi, Borude Mala, Ahmednagar, Maharashtra 414001<br><br>
+
+                📞 <b>Contact:</b><br>
+                Phone: 0241-2320778, 0241-2320780<br><br>
+                ⏰ <b>Timings:</b><br>
+                Open Daily: 6:00 AM – 7:00 PM
+            </div>
+
+            <!-- Contact Us Form -->
+            <div class="col-md-6">
+                <div class="card shadow p-4">
+                    <h2 class="text-center mb-4">Contact Us</h2>
+                    <form action="/save_contact" method="POST">
+                        <div class="mb-3">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" class="form-control" name="full_name" placeholder="Enter your name" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Email Address</label>
+                            <input type="email" class="form-control" name="email" placeholder="Enter your email" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" name="mobile" placeholder="Enter your phone number">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Message</label>
+                            <textarea class="form-control" rows="4" name="message" placeholder="Enter your message" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Google Map Embed Section -->
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-10">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3333.4521067035043!2d74.72796974747469!3d19.113119188725474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bdcb081e3b098ad%3A0x8eac79d6d4a645b2!2sKhandelwal%20Children%20%26%20Eye%20Hospital!5e0!3m2!1sen!2sin!4v1739476552983!5m2!1sen!2sin" width="100%" height="300px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+
+
+<%-include("Footer.ejs")%>

@@ -1,0 +1,34 @@
+<%-include("navbar.ejs")%>
+
+
+<div class="container mt-5">
+    <div class="card shadow-lg p-4">
+        <h3 class="text-center mb-4">Manage Patient Feedback</h3>
+        <div class="tab-content mt-3">
+            <table class="table table-bordered">
+                <tr>
+                    <th>Action</th>
+                    <th>Sr.No.</th>
+                    <th>Name</th>
+                    <th>Review</th>
+                    <th>Rating</th>
+                </tr>
+                <%feedback.map((row,i)=>{ %>
+                    <tr>
+                        <td>
+                            <a href="/admin/feedback_delete/<%-row.feedback_id%>"><button class="btn btn-danger text-light"><i class="fa-solid fa-trash"></i></button></a>
+                          </td>
+                        <td><%-i+1%></td>
+                        <td><%-row.name%></td>
+                        <td><%-row.review%></td>
+                        <td class="star-rating"><%= '★'.repeat(row.rating) + '☆'.repeat(5 - row.rating) %></td>
+                    </tr>
+                <% }) %>
+        </table>
+        </div>
+    </div>
+</div>
+
+
+
+<%-include("footer.ejs")%>

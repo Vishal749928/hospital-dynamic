@@ -1,0 +1,47 @@
+<%-include("navbar.ejs")%>
+
+
+<div class="container mt-5">
+    <div class="card shadow-lg p-4">
+        <h3 class="text-center mb-4">Edit slider textrmation</h3>
+        <div class="tab-content mt-3">
+            <!-- Mobile Number -->
+            <div >
+                <form action="/admin/save_edit_slider" method="post" enctype="multipart/form-data">
+
+                    <input type="text" class="form-control w-25" name="slider_id" value="<%-data.slider_id %>" readonly>
+
+                    <div class="mb-3">
+                        
+                        <label class="form-label">Edit slider Image</label>
+                        
+                        <div class="input-group w-50">
+                            <img src="/uploads/<%-data.slider_image1%>" height="30px">
+                             <input type="file" class="form-control " name="edit_slider_image1"  required>
+                        </div>
+                        
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Edit slider Name</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                            <input type="text" class="form-control" name="edit_slider_text1"  value="<%-data.slider_text1%>" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Edit slider Expireance in</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                            <input type="text" class="form-control" name="edit_slider_text2" value="<%-data.slider_text2%>" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100">Edit slider</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<%-include("footer.ejs")%>

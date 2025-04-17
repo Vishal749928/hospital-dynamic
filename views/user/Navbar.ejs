@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khandelwal Hospital</title>
+
+    <link rel="stylesheet" href="user_assets/css/index.css">
+    <script src="user_assets/js/includes.js" defer></script>
+
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0d06cb6a9a.js" crossorigin="anonymous"></script>
+
+
+<!-- Aos Animation library -->
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+</head>
+<body>
+    
+  <!-- Top Navbar (Contact and Hours) -->
+  <div class="container-fluid top_navbar"  data-aos="fade-down">
+      <div class="row">
+          <div class="col-9 d-flex">
+              <a class="d-flex align-items-center" href="tel:7499285296">
+                  <i class="fa-solid fa-phone"></i> <%-tn.mobile%> &nbsp;<i class="fa-solid fa-envelope"></i> <%-tn.email%>
+              </a>&nbsp;&nbsp;
+              <a class="d-flex align-items-center">
+                  <i class="fa-solid fa-clock"></i>&nbsp; <%-tn.time%>
+              </a>
+          </div>
+          <div class=" col-3 text-end">
+              <a class="social-media" href="//wa.me/<%-tn.whatsapp%>?text=Hello Doctor, I Have a Question ?" target="_blank">
+                  <i class="fa-brands fa-whatsapp"></i>
+              </a>
+              <a class="social-media" href="<%-tn.insta%>">
+                  <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a class="social-media" href="<%-tn.facebook%>">
+                  <i class="fa-brands fa-facebook"></i>
+              </a>
+          </div>
+      </div>
+  </div>
+
+  <!-- Navbar (Main Navigation) -->
+  <div class="navbar navbar-expand-md navbar-dark nav_section w-100 position-sticky top-0" data-aos="fade-up">
+      <div class="container d-flex">
+          <!-- Brand Logo -->
+          <a class="d-flex navbar-brand d-flex align-items-center" href="/">
+              <img src="user_assets/images/logoA.png" alt="Logo"> <b style="font-family:cursive;">Khandelwal Hospital</b>
+          </a>
+          
+          <!-- Collapsible Navbar Links -->
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto">
+                  <li class="nav-item"><a class="fw-bold active" href="/">Home</a></li>
+                  <li class="nav-item"><a class="fw-bold active" href="/about">About</a></li>
+                  <li class="nav-item"><a class="fw-bold active" href="/services">Services</a></li>
+                  <li class="nav-item"><a class="fw-bold active" href="/gallery">Gallery</a></li>
+                  <li class="nav-item"><a class="fw-bold active" href="/contact">Contact</a></li>
+                  <li class="nav-item"><a class="fw-bold active" href="/faqs">FAQ's</a></li>
+              </ul>
+              <button type="button" class="btn fw-bold btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Appointment
+              </button>
+              <a href="tel:7499285296" class="align-items-center btn btn-danger fw-bold" >
+                <i class="fa-solid fa-phone"> </i> Emergency
+            </a>
+          </div>
+          
+          <!-- Toggle Button for Mobile -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+      </div>
+  </div>
+
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="text-center" data-aos="fade-down">Book Appointment</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="modal-body-content">
+                <div class="container">
+
+                    <div class="row">
+                        <!-- The marquee content will be shown or hidden here -->
+                        <marquee style="background: yellow;" behavior="scroll" direction="left" id="appointmentMarquee">
+                            <span id="date"><%-appo.patient_name%></span> You Have An Appointment Date: <%-appo.appo_date%> Time: <%-appo.appo_time%>
+                        </marquee>
+                    </div>
+                 
+                    <!-- Book Appointment Section -->
+                    <div class="row justify-content-center ">
+                        <div class="card shadow p-3">
+                            <form action="/save_appointment" method="POST">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Patient Full Name</label>
+                                        <input type="text" class="form-control" name="patient_name" placeholder="Enter your name" required>
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Phone Number</label>
+                                        <input type="number" class="form-control" name="patient_mobile" placeholder="Enter your phone number" required>
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Date</label>
+                                        <input type="date" class="form-control" name="appo_date" id="datePicker" required>
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Time</label>
+                                        <input type="time" class="form-control" name="appo_time" id="timePicker" required>
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Patient Address</label>
+                                        <textarea class="form-control" rows="4" name="patient_address" placeholder="Enter your Address" required></textarea>
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Message</label>
+                                        <textarea class="form-control" rows="4" name="message" placeholder="Enter your message"></textarea>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary w-100">Book Appointment</button>
+                            </form>
+
+                            <script>
+                                // Set up datepicker and timepicker min/max
+                                const datePicker = document.getElementById("datePicker");
+                                const today = new Date();
+                                const formatDate = (date) => date.toISOString().split("T")[0];
+                                const minDate = formatDate(today);
+                                const maxDate = formatDate(new Date(today.getTime() + 10 * 24 * 60 * 60 * 1000));
+                                datePicker.min = minDate;
+                                datePicker.max = maxDate;
+
+                                const timePicker = document.getElementById("timePicker");
+                                timePicker.min = "08:00";
+                                timePicker.max = "19:30";
+                                timePicker.addEventListener("input", function () {
+                                    const selectedTime = this.value;
+                                    if (selectedTime < "08:00" || selectedTime > "19:30") {
+                                        alert("Please select a time between 8:00 AM and 7:30 PM.");
+                                        this.value = "";
+                                    }
+                                });
+                            </script>
+
+                            <script>
+                                // Get the current date in YYYY-MM-DD format
+                                const today1 = new Date().toISOString().split("T")[0];
+
+                                // Assuming appo.appo_date is available in <%-appo.appo_date%>
+                                const appoDate = "<%-appo.appo_date%>"; // Placeholder from your template
+
+                                // Get the marquee element
+                                const marqueeElement = document.getElementById("appointmentMarquee");
+
+                                // Check if the appointment date is today1 or in the future
+                                if (appoDate >= today1) {
+                                    // Show the marquee if appo_date is greater than or equal to today1
+                                    marqueeElement.style.display = 'block';
+                                } else {
+                                    // Hide the marquee if appo_date is in the past
+                                    marqueeElement.style.display = 'none';
+                                }
+                            </script>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+  

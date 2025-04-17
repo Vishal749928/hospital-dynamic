@@ -1,0 +1,92 @@
+<%-include("navbar.ejs")%>
+
+
+<div class="container mt-5">
+    <div class="card shadow-lg p-4">
+        <h3 class="text-center mb-4">Add About Information 1</h3>
+        <div class="tab-content mt-3">
+            <!-- Mobile Number -->
+            <div >
+                <form action="/admin/save_about" method="post" enctype="multipart/form-data">
+
+
+                    <div class="mb-3">
+                        <label class="form-label">Add About Image 1</label>
+                        
+                        <div class="input-group w-50">
+                             <input type="file" class="form-control " name="about_image1"  required>
+                        </div>
+                        
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Add Heading 1</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                            <input type="text" class="form-control" name="heading_1"  value="" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Add description 1</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                            <textarea type="text" class="form-control" name="description_1" required></textarea>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Add Heading 2</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                            <input type="text" class="form-control" name="heading_2"  value="" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Add description 2</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                            <textarea type="text" class="form-control" name="description_2" required></textarea>
+                        </div>
+                    </div>
+                 
+                    <button type="submit" class="btn btn-primary w-100">Add About Info</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <table class="table table-bordered">
+            <tr>
+                <th>Action</th>
+                <th>Sr.No.</th>
+                <th>About image</th>
+                <th>heading 1</th>
+                <th>description 1</th>
+                <th>heading 2</th>
+                <th>description 2</th>
+                
+            </tr>
+            <%data.map((row,i)=>{ %>
+                
+                <tr>
+                    <td>
+                      <a href="/admin/edit_about/<%-row.about_id%>"><button class="btn btn-primary text-light"><i class="fa-solid fa-pen-to-square"></i></button></a>
+                      <a href="/admin/delete_about/<%-row.about_id%>"><button class="btn btn-danger text-light"><i class="fa-solid fa-trash"></i></button></a>
+                    </td>
+                    <td><%-i+1%></td>
+                    <td>
+                        <img src="/uploads/<%-row.about_image1%>" alt="" height="50px">
+                    </td>                    
+                    <td><%-row.heading_1%></td> 
+                    <td><%-row.description_1%></td>
+                    <td><%-row.heading_2%></td>
+                    <td><%-row.description_2%></td>
+
+                </tr>
+
+            <% }) %>
+    </table>
+</div>
+
+<%-include("footer.ejs")%>

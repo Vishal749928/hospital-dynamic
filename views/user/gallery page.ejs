@@ -1,0 +1,62 @@
+<%-include("Navbar.ejs")%>
+
+
+<div class="about_banner" >
+    <img src="user_assets/images/slideB.jpg" class="d-block" alt="Slide 2 ">
+    <div class="carousel-caption d-md-block">
+        <h2 class="text">Explore Our Gallery</h2>
+      <p class="text">We offer high-quality Services for your helth.</p>
+
+       
+    </div>
+</div>
+<!-- gallery -->
+<div class="container-fluid">  
+<div class="row mb-5">
+
+    <div class="" data-aos="fade-up">
+        <h1 class="text-success text-center p-5 fw-bold">Hospital Gallery</h1>
+    </div>
+
+    <% gall.map((row,i)=>{ %>
+    <div class="col-md-4 mt-5">
+        <div class="card doctor-card text-center " data-aos="flip-up">
+            <div class="gallery-item doctor-img" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-bs-img-src="/uploads/<%-row.gallery_image%>">
+                <img src="/uploads/<%-row.gallery_image%>" width="100%" alt="Image 1">
+            </div>
+        </div>
+    </div>
+    <%})%>
+
+    </div>
+</div>
+
+
+
+    <!-- Modal for Lightbox -->
+    <div class="modal fade" id="lightboxModal" tabindex="-1" aria-labelledby="lightboxModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <img id="lightboxImage" class="img-fluid" alt="Lightbox Image">
+                </div>
+                <div class="modal-footer">
+                    <h4 class="text-start">Information About Image</h4>
+                    
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Script to change image in the modal on click
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const imgSrc = item.getAttribute('data-bs-img-src');
+                document.getElementById('lightboxImage').src = imgSrc;
+            });
+        });
+    </script>
+
+<%-include("Footer.ejs")%>

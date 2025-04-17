@@ -1,0 +1,30 @@
+<%-include("navbar.ejs")%>
+<div class="container mt-5">
+    <div class="card shadow-lg p-4">
+        <h3 class="text-center mb-4">Update Blog Image And Information</h3>
+        <div class="tab-content mt-3">
+
+            <div >
+                <form action="/admin/save_edit_blog" method="post" enctype="multipart/form-data">
+                    <input type="text" value="<%-data.blog_id%>" name="blog_id" readonly hidden>
+
+                    <div class="mb-3">
+                        <label class="form-label">Update Blog Image</label>
+                        <div class="input-group">
+                            <img src="/uploads/<%-data.blog_image%>" alt="" height="30px">
+                            <input type="file" class="form-control" name="edit_blog_image" placeholder="select image" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Update Blog Information</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="edit_blog_info" placeholder="Blog Information" value="<%-data.blog_info%>" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Edit Blog</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<%-include("footer.ejs")%>

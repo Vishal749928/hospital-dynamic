@@ -1,0 +1,56 @@
+<%-include("navbar.ejs")%>
+
+
+<div class="container mt-5">
+    <div class="card shadow-lg p-4">
+        <h3 class="text-center mb-4">Add FAQ's</h3>
+        <div class="tab-content mt-3">
+            <!-- Mobile Number -->
+            <div >
+                <form action="/admin/save_faqs" method="post" >
+                   
+                    <div class="mb-3">
+                        <label class="form-label">Questions</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                            <input type="text" class="form-control" name="que" placeholder="Enter que Text" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">ANS</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                            <input type="text" class="form-control" name="ans" placeholder="Enter ans" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100">Add Faqs</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <table class="table table-bordered">
+            <tr>
+                <th>Sr.No.</th>
+                <th>Question</th>
+                <th>Answer</th>
+                
+            </tr>
+            <%data.map((row,i)=>{ %>
+                
+                <tr>
+                    <td><%-i+1%></td>
+                    <td><%-row.que%></td>
+                    <td><%-row.ans%></td>
+                    
+                </tr>
+
+            <% }) %>
+    </table>
+</div>
+
+<%-include("footer.ejs")%>

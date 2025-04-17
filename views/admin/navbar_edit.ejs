@@ -1,0 +1,87 @@
+<%-include("navbar.ejs")%>
+
+
+<div class="container mt-5">
+    <div class="card shadow-lg p-4">
+        <h3 class="text-center mb-4">Update Top Navbar Contact Information</h3>
+        <div class="tab-content mt-3">
+            <!-- Mobile Number -->
+            <div >
+                <form action="/admin/update_top_nav" method="post">
+                    <div class="mb-3">
+                        <label for="mobileNumber" class="form-label">New Mobile Number</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-phone"></i></span>
+                            <input type="tel" class="form-control" name="mobile" placeholder="Enter new mobile number" required>
+                        </div>
+                    </div>
+                    
+            <!-- Email -->
+            
+                    <div class="mb-3">
+                        <label for="emailAddress" class="form-label">New Email</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                            <input type="email" class="form-control" name="email" placeholder="Enter new email" required>
+                        </div>
+                    </div>
+
+         <!-- Time -->
+            
+                     <div class="mb-3">
+                        <label for="time" class="form-label">New Time</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                            <input type="text" class="form-control" name="time" placeholder="Enter new Time" required>
+                        </div>
+                    </div>
+                    
+            <!-- Social Media -->
+           
+                    <div class="mb-3">
+                        <label for="socialHandle" class="form-label">New Social Media Handle</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" name="whatsapp" placeholder="Enter WhatsApp No." required>
+                            <input type="text" class="form-control" name="insta" placeholder="Past Insta Link" required>
+                            <input type="text" class="form-control" name="youtube" placeholder="Past YT Channel Link" required>
+                            <input type="text" class="form-control" name="facebook" placeholder="Past Facebook Link" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Update Information</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <table class="table table-bordered">
+            <tr>
+                <th>Sr.No.</th>
+                <th>Mobile</th>
+                <th>Email</th>
+                <th>Time</th>
+                <th>WhatsApp No</th>
+                <th>Insta Link</th>
+                <th>YT Link</th>
+                <th>Facebook Link</th>
+            </tr>
+            <%data.map((row,i)=>{ %>
+                
+                <tr>
+                    <td><%-i+1%></td>
+                    <td><%-row.mobile%></td>
+                    <td><%-row.email%></td>
+                    <td><%-row.time%></td>
+                    <td><%-row.whatsapp%></td>
+                    <td><%-row.insta%></td>
+                    <td><%-row.youtube%></td>
+                    <td><%-row.facebook%></td>
+                </tr>
+
+            <% }) %>
+    </table>
+</div>
+
+
+<%-include("footer.ejs")%>

@@ -1,0 +1,81 @@
+<%-include("navbar.ejs")%>
+
+
+<div class="container mt-5">
+    <div class="card shadow-lg p-4">
+        <h3 class="text-center mb-4">Add Doctors Image And Information</h3>
+        <div class="tab-content mt-3">
+            <!-- Mobile Number -->
+            <div >
+                <form action="/admin/update_home_Doctors" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label class="form-label">Doctors Image</label>
+                        <div class="input-group">
+                            <input type="file" class="form-control" name="Doctors_image1" placeholder="select image" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Doctors Name</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                            <input type="text" class="form-control" name="Doctors_info1" placeholder="Doctors Name" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Doctors Expireance in</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                            <input type="text" class="form-control" name="Doctors_info2" placeholder="Doctors Expireance In" required>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Doctors Info</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                            <input type="text" class="form-control" name="Doctors_info3" placeholder="Doctors Info" required>
+                        </div>
+                    </div>
+                    
+           
+                    <button type="submit" class="btn btn-primary w-100">Add Doctors</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <table class="table table-bordered">
+            <tr>
+                <th>Action</th>
+                <th>Sr.No.</th>
+                <th>Doctors image</th>
+                <th>Doctors Name</th>
+                <th>Doctors Expireance In</th>
+                <th>Doctors Info</th>
+                
+            </tr>
+            <%data.map((row,i)=>{ %>
+                
+                <tr>
+                    <td class="btn-group">
+
+                      <a href="/admin/edit_Doctors/<%-row.doctor_id%>"><button class="btn btn-primary text-light"><i class="fa-solid fa-pen-to-square"></i></button></a>
+                      <a href="/admin/delete_Doctors/<%-row.doctor_id%>"><button class="btn btn-danger text-light"><i class="fa-solid fa-trash"></i></button></a>
+                    </td>
+                    <td><%-i+1%></td>
+                    <td>
+                        <img src="/uploads/<%-row.Doctors_image1%>" alt="" height="50px">
+                    </td>                    
+                    <td><%-row.Doctors_info1%></td> 
+                    <td><%-row.Doctors_info2%></td>
+                    <td><%-row.Doctors_info3%></td>
+                </tr>
+
+            <% }) %>
+    </table>
+</div>
+
+<%-include("footer.ejs")%>

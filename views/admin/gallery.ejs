@@ -1,0 +1,50 @@
+<%-include("navbar.ejs")%>
+
+
+<div class="container mt-5">
+    <div class="card shadow-lg p-4">
+        <h3 class="text-center mb-4">Add Image</h3>
+        <div class="tab-content mt-3">
+            <!-- Mobile Number -->
+            <div >
+                <form action="/admin/save_gallery" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label class="form-label">Select Image</label>
+                        <div class="input-group">
+                            <input type="file" class="form-control" name="gallery_image" placeholder="select image" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Add Image</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <table class="table table-bordered">
+            <tr>
+                <th>Action</th>
+                <th>Sr.No.</th>
+                <th>images</th>
+               
+                
+            </tr>
+            <%data.map((row,i)=>{ %>
+                
+                <tr>
+                    <td>
+                      <a href="/admin/gallery_delete/<%-row.gallery_id%>"><button class="btn btn-danger text-light"><i class="fa-solid fa-trash"></i></button></a>
+                    </td>
+                    <td><%-i+1%></td>
+                    <td>
+                        <img src="/uploads/<%-row.gallery_image%>" alt="" height="50px">
+                    </td>                    
+                </tr>
+
+            <% }) %>
+    </table>
+</div>
+
+<%-include("footer.ejs")%>

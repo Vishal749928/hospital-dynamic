@@ -1,0 +1,289 @@
+
+.container-fluid{
+  overflow: hidden;
+}
+.container{
+  overflow: hidden;
+}
+body{
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.top_navbar{
+ 
+  background-image: linear-gradient(to right, rgb(148, 231, 237),rgb(162, 255, 255));
+  box-shadow:1px 1px 10px 1px ;
+  /* z-index: 999; */
+}
+.top_navbar a{
+  font-family: Arial, Helvetica, sans-serif;
+  margin-left: 10px;
+  text-decoration: none;
+  font-size: 15px;
+  color: rgb(32, 32, 32);
+}
+.social-media i{
+  font-size: 30px;
+}
+
+/* Custom Styles */
+.navbar-brand img {
+  width: 50px;
+  height: 50px;
+  margin-right: 8px;
+}
+.nav_section {
+  background-image: linear-gradient(to right, rgb(24, 0, 129),rgb(67, 10, 104),rgb(3, 58, 129));
+  /* background-color: darkblue; */
+  box-shadow:0px 0px 10px 0px ;
+  position: absolute;
+  z-index: 999;
+}
+.nav-item a{
+  font-size: 16px;
+  text-decoration: none;
+  margin-right: 12px;
+  color: white;
+}
+.nav-item :hover {
+  color: aqua;
+  font-size: 17px;
+}
+
+/* slider :start */
+ /* Text Animation */
+ .animated-text {
+  opacity: 0.5;
+  transform: translateY(-200px);
+  transition: opacity 1.5s ease-in, transform 1.5s ease-in;
+  font-weight: 800;
+  color: rgb(255, 255, 255);
+}
+.carousel{
+  box-shadow:1px 1px 10px 1px;
+  overflow: hidden;
+  height: 500px;
+  
+}
+.carousel-item img{
+  height: 500px;
+}
+.carousel-item.active .animated-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.carousel-caption {
+  padding: 15px;
+  margin-bottom: 50px;
+  border-radius: 10px;
+  text-shadow: 1px 1px 10px rgb(0, 0, 0);
+}
+
+@media (max-width:600px){
+  .top_navbar{
+    display: none;
+  }
+  .carousel{
+    box-shadow: 1px 1px 10px 5px;
+    /* border-radius: 20px; */
+    margin-top: 10px;
+    overflow: hidden;
+    height: 350px;
+  }
+  .carousel-item img{
+ 
+    height: 350px;
+  
+  }
+}
+
+/* slider :end */
+
+/* Happy Costumer */
+    .metric-card {
+      border-radius: 15px;
+      background-color: #f9f9f9;
+      text-align: center;
+      padding: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+    .metric-card:hover {
+      transform: scale(1.05);
+    }
+    .metric-icon {
+      font-size: 3rem;
+      color: #ffcc00; /* For happy customer */
+    }
+    .metric-count {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #333;
+    }
+    .metric-label {
+      font-size: 1.1rem;
+      color: #777;
+    }
+    .bg-happy {
+      background-color: #fffae5;
+    }
+    .bg-visit {
+      background-color: #e0f7fa;
+    }
+    .bg-like {
+      background-color: #f3e5f5;
+    }
+ 
+
+/* home_about :start */
+
+
+.home_about{
+  height: 370px;
+  width: 50%;
+  overflow: hidden;
+  padding: 20px;
+}
+.home_about img{
+  /* border-radius: 10px; */
+  height: 100%;
+}
+.home_about1{
+  width: 50%;
+  /* text-align: center; */
+  align-content: center;
+  padding: 10px;
+  background-color: white;
+  line-height: 30px;
+  padding: 50px;
+  /* font-size: medium; */
+  color: rgb(48, 48, 48);
+}
+.home_about_heding{
+  font-weight: 600;
+  text-align: center;
+}
+
+/* meet our doctors section */
+.doctor-card {
+  transition: transform 0.3s ease-in-out;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.doctor-card:hover {
+  transform: translateY(-10px);
+}
+.doctor-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+
+/* blog section */
+.blog-row{
+  height: 300px;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.blog-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+ }
+ .star-rating {
+  color: #FFD700;
+}
+
+/* flip flop section */
+.flip-card {
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+
+
+/* About Page */
+.about_banner{
+  height: 300px;
+  width: 100%;
+  overflow: hidden;
+}
+.about_banner img{
+  height: auto;
+  width: 100%;
+  filter: brightness(0.5);
+}
+.about_banner .text{
+  transform: translateY(-200px);
+  font-weight: 700;
+  color: rgb(245, 129, 67);
+}
+
+
+/* services page */
+
+    .service-icon {
+      font-size: 50px;
+      color: #5bc0de;
+    }
+    .service-card {
+      transition: transform 0.3s ease-in-out;
+    }
+    .service-card:hover {
+      transform: scale(1.05);
+    }
+    .header-banner {
+     
+      background-image: url('https://via.placeholder.com/1600x400');
+      background-size: cover;
+      color: rgb(93, 93, 93);
+      padding: 80px 0;
+      text-align: center;
+    }
+  
+
+
+/* faqs page */
+.feedback{
+  height: auto;
+  width: 100%;
+  box-shadow: 0px 0px 10px 0px rgb(170, 168, 168);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.patient-review{
+  height: 400px;
+  width: 100%;
+  /* padding: 10px; */
+  background-color: white;
+  overflow-y: scroll;
+
+}

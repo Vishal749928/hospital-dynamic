@@ -1,0 +1,59 @@
+<%-include("navbar.ejs")%>
+
+
+<div class="container mt-5">
+    <div class="card shadow-lg p-4">
+        <h3 class="text-center mb-4">Add Blog</h3>
+        <div class="tab-content mt-3">
+
+            <div >
+                <form action="/admin/save_blog" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label class="form-label">New Blog Image 1</label>
+                        <div class="input-group">
+                            <input type="file" class="form-control" name="blog_image" placeholder="select image" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Enter Blog Information</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="blog_info" placeholder="Blog Information" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Add Blog</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <table class="table table-bordered">
+            <tr>
+                <th>Action</th>
+                <th>Sr.No.</th>
+                <th>Blog image</th>
+                <th>Blog Information</th>
+                
+                
+            </tr>
+            <%data.map((row,i)=>{ %>
+                
+                <tr>
+                    <td>
+                        <a href="/admin/edit_blog/<%-row.blog_id%>"><button class="btn btn-primary text-light"><i class="fa-solid fa-pen-to-square"></i></button></a>
+                        <a href="/admin/delete_blog/<%-row.blog_id%>"><button class="btn btn-danger text-light"><i class="fa-solid fa-trash"></i></button></a>
+                      </td>
+                    <td><%-i+1%></td>
+                    <td>
+                        <img src="/uploads/<%-row.blog_image%>" alt="" height="50px">
+                    </td>
+                    <td><%-row.blog_info%></td>
+                </tr>
+
+            <% }) %>
+    </table>
+</div>
+
+<%-include("footer.ejs")%>

@@ -1,0 +1,55 @@
+<%-include("navbar.ejs")%>
+
+
+<div class="container mt-5">
+    <div class="card shadow-lg p-4">
+        <h3 class="text-center mb-4">Edit Doctors Information</h3>
+        <div class="tab-content mt-3">
+            <!-- Mobile Number -->
+            <div >
+                <form action="/admin/save_edit_Doctors" method="post" enctype="multipart/form-data">
+
+                    <input type="text" class="form-control w-25" name="doctor_id" value="<%-data.doctor_id%>" readonly hidden>
+
+                    <div class="mb-3">
+                        
+                        <label class="form-label">Edit Doctors Image</label>
+                        
+                        <div class="input-group w-50">
+                            <img src="/uploads/<%-data.Doctors_image1%>" height="30px"> <input type="file" class="form-control " name="edit_Doctors_image1"  required>
+                        </div>
+                        
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Edit Doctors Name</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                            <input type="text" class="form-control" name="edit_Doctors_info1"  value="<%-data.Doctors_info1%>" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Edit Doctors Expireance in</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                            <input type="text" class="form-control" name="edit_Doctors_info2" value="<%-data.Doctors_info2%>" required>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Edit Doctors Info</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                            <input type="text" class="form-control" name="edit_Doctors_info3" value="<%-data.Doctors_info3%>" required>
+                        </div>
+                    </div>
+                    
+           
+                    <button type="submit" class="btn btn-primary w-100">Edit Doctors</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<%-include("footer.ejs")%>

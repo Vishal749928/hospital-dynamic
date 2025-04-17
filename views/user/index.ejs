@@ -1,0 +1,309 @@
+<%- include("Navbar.ejs") %>
+
+    <!-- Bootstrap Carousel Slider -->
+    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" >
+        <div class="carousel-inner">
+            
+            <!-- Slide 1 -->
+        <% hs.map((row,i)=>{ %>
+            <div class="carousel-item <%= i === 0 ? 'active' : '' %>">
+                <img src="/uploads/<%-row.slider_image1%>" class="d-block w-100" alt="Slide 1" data-bs-interval="1000">
+                <div class="carousel-caption d-md-block">
+                    <h2 class="animated-text"><%-row.slider_text1%></h2>
+                    <p class="animated-text"><%-row.slider_text2%></p>
+                </div>
+            </div>
+
+            <%})%>
+        </div>
+       
+
+        <!-- Carousel Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+    </div>
+
+
+    <!-- Happy Patients Section -->
+    <section class="happy-Patients-section text-center mt-5" data-aos="fade-up">
+        <div class="container-fluid">
+          <h2 class="mb-4 fw-bold text-primary">Happy Patients</h2>
+          <p class="lead mb-4">Over the years, we have helped thousands of children achieve better vision.</p>
+          <div class="row">
+              <!-- Happy Patient Count -->
+              <div class="col-md-4 mb-4">
+                <div class="card metric-card bg-happy">
+                  <div class="card-body">
+                    <i class="fas fa-smile metric-icon"></i>
+                    <div class="metric-count count" data-count="<%-hp.happy_patient%>"></div>
+                    <div class="metric-label">Happy Patient</div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Patient Visit Count -->
+              <div class="col-md-4  mb-4">
+                <div class="card metric-card bg-visit">
+                  <div class="card-body">
+                    <i class="fas fa-hospital-alt metric-icon"></i>
+                    <div class="metric-count count" data-count="<%-hp.patient_visit%>">1200+</div>
+                    <div class="metric-label">Patient Visits</div>
+                  </div>
+                </div>
+              </div>
+        
+              <!-- Patient Like Count -->
+              <div class="col-md-4 mb-4">
+                <div class="card metric-card bg-like">
+                  <div class="card-body">
+                    <i class="fas fa-heart metric-icon"></i>
+                    <div class="metric-count count" data-count="<%-hp.patient_likes%>">1200+</div>
+                    <div class="metric-label">Patient Likes</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </section>
+  
+    
+    <script>
+        // Counter animation
+        document.addEventListener("DOMContentLoaded", () => {
+            const counters = document.querySelectorAll('.count');
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-count');
+                let count = 0;
+                const increment = target / 300;
+    
+                const updateCount = () => {
+                    count += increment;
+                    if (count < target) {
+                        counter.textContent = Math.ceil(count);
+                        requestAnimationFrame(updateCount);
+                    } else {
+                        counter.textContent = target;
+                    }
+                };
+                updateCount();
+            });
+        });
+    </script>
+
+    <div class="container home_about_main">
+        <div class="row">
+                <div class="col-md-6 home_about" data-aos="fade-right">
+                    <img src="/uploads/<%-ha.About_image1%>" alt="Front" style="width:100%">
+                </div>
+            <div class="col-md-6 home_about1 text-center" data-aos="fade-left">
+                <h3 class="fw-bold text-primary"><%-ha.About_text1%></h3>
+                <p><%-ha.sub_heding1%></p>
+               
+            <a href="about page.html#section2"><button class="btn btn-lg btn-danger">See More</button></a>
+            </div>
+    
+                <div class="col-md-6  home_about1 text-center" data-aos="fade-left">
+                    <h3 class="fw-bold text-primary"><%-ha.About_text2%></h3>
+                        <p><%-ha.sub_heding2%></p>
+                    <a href="services page.html"><button class="btn btn-lg btn-danger">See More</button></a>
+                </div>
+                <div class="col-md-6 home_about " data-aos="fade-right">
+                        <img src="/uploads/<%-ha.About_image2%>" alt="Front" style="width:100%">    
+                </div>    
+        
+            <div class="col-md-6 home_about " data-aos="fade-right">
+                    <img src="/uploads/<%-ha.About_image3%>" alt="Front" style="width:100%">
+            </div>
+             <div class="col-md-6 home_about1 text-center" data-aos="fade-left">
+                <h3 class="fw-bold text-primary"><%-ha.About_text3%></h3>
+                    <p><%-ha.sub_heding3%></p>
+               <a href="about page.html"><button class="btn btn-lg btn-danger">See More</button></a>
+             </div>
+         </div>
+    
+    </div>
+
+<!-- why choose us -->
+
+<div class="container py-5">
+    <div class="text-center mb-4" data-aos="fade-down">
+        <h2 class="fw-bold text-primary">Why Choose Us?</h2>
+        <p class="text-muted">We provide exceptional care for your little ones with love, expertise, and innovation.</p>
+    </div>
+
+    <div class="row g-4">
+        <!-- Card 1 -->
+        <div class="col-md-4" data-aos="fade-left">
+            <div class="card shadow border-0 text-center p-4">
+                <div class="mb-3">
+                    <i class="fas fa-hospital-user fa-3x text-primary"></i>
+                </div>
+                <h5 class="fw-bold">Experienced Pediatricians</h5>
+                <p class="text-muted">Our team of expert doctors ensures the best healthcare for children of all ages.</p>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col-md-4" data-aos="fade-up">
+            <div class="card shadow border-0 text-center p-4">
+                <div class="mb-3">
+                    <i class="fas fa-stethoscope fa-3x text-success"></i>
+                </div>
+                <h5 class="fw-bold">State-of-the-Art Facilities</h5>
+                <p class="text-muted">Equipped with the latest technology to provide advanced medical care.</p>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col-md-4" data-aos="fade-right">
+            <div class="card shadow border-0 text-center p-4">
+                <div class="mb-3">
+                    <i class="fas fa-heartbeat fa-3x text-danger"></i>
+                </div>
+                <h5 class="fw-bold">Compassionate Care</h5>
+                <p class="text-muted">A warm and child-friendly environment to ensure comfort and happiness.</p>
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="col-md-4" data-aos="fade-left">
+            <div class="card shadow border-0 text-center p-4">
+                <div class="mb-3">
+                    <i class="fas fa-ambulance fa-3x text-warning"></i>
+                </div>
+                <h5 class="fw-bold">24/7 Emergency Services</h5>
+                <p class="text-muted">Round-the-clock pediatric emergency care for immediate assistance.</p>
+            </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="col-md-4" data-aos="fade-up">
+            <div class="card shadow border-0 text-center p-4">
+                <div class="mb-3">
+                    <i class="fas fa-user-md fa-3x text-info"></i>
+                </div>
+                <h5 class="fw-bold">Specialized Treatments</h5>
+                <p class="text-muted">Dedicated care for newborns, chronic illnesses, and rare conditions.</p>
+            </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="col-md-4" data-aos="fade-right">
+            <div class="card shadow border-0 text-center p-4">
+                <div class="mb-3">
+                    <i class="fas fa-smile fa-3x text-secondary"></i>
+                </div>
+                <h5 class="fw-bold">Child-Friendly Atmosphere</h5>
+                <p class="text-muted">Designed to make children feel safe, comfortable, and happy.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- expert doctors -->
+<div class="container-fluid p-5 home_about_main">
+    <div class="text-center mb-4" data-aos="fade-down">
+        <h2 class="fw-bold text-primary fade-in">Meet Our Expert Doctors</h2>
+        <p class="text-muted fade-in">Our specialists are here to provide world-class healthcare.</p>
+    <p class="text-center">Meet Our Specialist: At Khandelwal Children and Eye Hospital Ahmednagar, we are proud to offer the expertise of highly qualified specialists dedicated to providing the best care for our patients. 
+
+    </div>
+
+<div class="row g-4">
+    <!-- Doctor 1 -->
+     <% Dr.map((row,i)=>{ %>
+
+    <div class="col-md-4 box-shadow-5" data-aos="fade-right">
+        <div class="card doctor-card text-center fade-in">
+            <img src="/uploads/<%-row.Doctors_image1%>" alt="Dr. John Doe" class="doctor-img">
+            <div class="card-body">
+                <h5 class="fw-bold"><%-row.Doctors_info1%></h5>
+                <p class="text-muted"><%-row.Doctors_info2%></p>
+                <button type="button" class="btn fw-bold btn-primary" data-bs-toggle="modal" data-bs-target="#<%-i%>">
+                    view profile
+                  </button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="<%-i%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="text-center" data-aos="fade-down"><%-row.Doctors_info1%></h3>  
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="card card-body">
+                            <img src="/uploads/<%-row.Doctors_image1%>" alt="<%-row.Doctors_info1%>" class="doctor-img" width="100%" height="100%">
+                            <p class="text-muted"><%-row.Doctors_info2%></p>
+                            <p class="text-muted fade-in">Our specialists are here to provide world-class healthcare.</p>
+                            <p class="text-center"><%-row.Doctors_info3%> </p>
+                        
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+            <div class="modal-footer text-center">
+              <button class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">Close</button>
+
+            </div>
+        
+          </div>
+        </div>
+      </div>
+    <%})%>
+   
+    </div>
+</div>
+    
+
+
+
+
+
+<!-- blog -->
+<div class="container p-5" style="background-color: #f0f0f0; border-radius: 10px;">  
+        <h2 class="text-center mb-4 text-primary">Our Blog - News Eye Care for Children</h2>
+    <div class="row bg-white p-2 blog-row" data-aos="fade-up">
+       <%hb.map((row,i)=>{ %>
+        <div class="col-md-4 mt-5">
+            <div class="card doctor-card text-center ">
+                <div class="blog-img">
+            <a data-bs-toggle="modal" data-bs-target="#<%-row.blog_id%>">
+                    <img src="/uploads/<%-row.blog_image%>" width="100%" alt="Image 1">
+            </a>
+                </div>
+            </div>
+        </div>
+       <% }) %>
+    </div>
+</div> 
+
+<%hb.map((row,i)=>{ %>
+    <div class="modal fade" id="<%-row.blog_id%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+                <div class="card card-body">
+                    <img src="/uploads/<%-row.blog_image%>" alt="<%-row.blog_image%>" class="doctor-img" width="100%" height="100%">
+                    
+                </div>
+                <div class="card-footer">
+                    <p class=" fade-in"><%-row.blog_info%></p>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
+   <% }) %>
+
+
+<%-include("Footer.ejs") %>

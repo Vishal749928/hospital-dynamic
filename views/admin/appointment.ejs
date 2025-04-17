@@ -1,0 +1,102 @@
+
+
+<%-include("navbar.ejs")%>
+
+<div class="container mt-5">
+    <div class="card shadow-lg p-4">
+        <h3 class="text-center mb-4">Pending Appointments</h3>
+        <button class="btn btn-success w-25 mb-3" onclick="downloadPDF('pendingTable', 'Pending_Appointments')">Download PDF</button>
+        
+        <div class="tab-content mt-3">
+            <table id="pendingTable" class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Sr.No.</th>
+                        <th>Patient Name</th>
+                        <th>Patient Mobile</th>
+                        <th>Appo Date</th>
+                        <th>Appo Time</th>
+                        <th>Patient Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% appo.map((row, i) => { %>
+                        <tr>
+                            <td><%- i + 1 %></td>
+                            <td><%- row.patient_name %></td>
+                            <td><%- row.patient_mobile %></td>
+                            <td><%- row.appo_date %></td>
+                            <td><%- row.appo_time %></td>
+                            <td><%- row.patient_address %></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+        </div>
+        </div>
+
+
+        <div class="container mt-5">
+            <div class="card shadow-lg p-4">
+                <h3 class="text-center mt-5 mb-4">Completed Appointments</h3>
+        <button class="btn btn-success w-25 mb-3" onclick="downloadPDF('completedTable', 'Completed_Appointments')">Download PDF</button>
+        
+        <div class="tab-content mt-3">
+        <table id="completedTable" class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Sr.No.</th>
+                    <th>Patient Name</th>
+                    <th>Patient Mobile</th>
+                    <th>Appo Date</th>
+                    <th>Appo Time</th>
+                    <th>Patient Address</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% appo_list.map((row, i) => { %>
+                    <tr>
+                        <td><%- i + 1 %></td>
+                        <td><%- row.patient_name %></td>
+                        <td><%- row.patient_mobile %></td>
+                        <td><%- row.appo_date %></td>
+                        <td><%- row.appo_time %></td>
+                        <td><%- row.patient_address %></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+</div>
+
+<%-include("footer.ejs")%>
+
+<!-- Include DataTables & jsPDF -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('#pendingTable').DataTable();
+        $('#completedTable').DataTable();
+    });
+
+    function downloadPDF(tableId, title) {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+        doc.text(title, 15, 10);
+        
+        doc.autoTable({ 
+            html: `#${tableId}`, 
+            startY: 20 
+        });
+
+        doc.save(`${title}.pdf`);
+    }
+</script>

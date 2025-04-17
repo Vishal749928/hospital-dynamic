@@ -1,0 +1,65 @@
+<%-include("navbar.ejs")%>
+
+
+<div class="container mt-5">
+    <div class="card shadow-lg p-4">
+        <h3 class="text-center mb-4">Add services Image And Information</h3>
+        <div class="tab-content mt-3">
+            <!-- Mobile Number -->
+            <div >
+                <form action="/admin/save_services" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label class="form-label">New services Image</label>
+                        <div class="input-group">
+                            <input type="file" class="form-control" name="services_image" placeholder="select image" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Heading</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                            <input type="text" class="form-control" name="heading" placeholder="Enter services Text" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Information</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                            <input type="text" class="form-control" name="information" placeholder="Enter Text" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Add services</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <table class="table table-bordered">
+            <tr>
+                <th>Action</th>
+                <th>Sr.No.</th>
+                <th>services image 1</th>
+                <th>Heading </th>
+                <th>Information</th>                
+            </tr>
+            <%data.map((row,i)=>{ %>
+                <tr>
+                    <td class="btn-group">
+                        <a href="/admin/edit_services/<%-row.services_id%>"><button class="btn btn-primary text-light"><i class="fa-solid fa-pen-to-square"></i></button></a>
+                        <a href="/admin/delete_services/<%-row.services_id%>"><button class="btn btn-danger text-light"><i class="fa-solid fa-trash"></i></button></a>
+                    </td>
+                    <td><%-i+1%></td>
+                    <td>
+                        <img src="/uploads/<%-row.services_image%>" alt="" height="50px">
+                    </td>
+                    <td><%-row.heading%></td>
+                    <td><%-row.information%></td>
+                </tr>
+            <% }) %>
+    </table>
+</div>
+
+<%-include("footer.ejs")%>

@@ -1,0 +1,52 @@
+<%-include("navbar.ejs")%>
+
+
+<div class="container mt-5">
+    <div class="card shadow-lg p-4">
+        <h3 class="text-center mb-4">Update Top Navbar Contact Information</h3>
+        <div class="tab-content mt-3">
+            <!-- Mobile Number -->
+            <div >
+                <form>
+                    <div class="mb-3">
+                        <label for="mobileNumber" class="form-label">New Mobile Number</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-phone"></i></span>
+                            <input type="tel" class="form-control" id="mobileNumber" placeholder="Enter new mobile number" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Update Mobile</button>
+                </form>
+            </div>
+            <!-- Email -->
+            <div >
+                <form>
+                    <div class="mb-3">
+                        <label for="emailAddress" class="form-label">New Email</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                            <input type="email" class="form-control" id="emailAddress" placeholder="Enter new email" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Update Email</button>
+                </form>
+            </div>
+            <!-- Social Media -->
+            <div >
+                <form>
+                    <div class="mb-3">
+                        <label for="socialHandle" class="form-label">New Social Media Handle</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-person-circle"></i></span>
+                            <input type="text" class="form-control" id="socialHandle" placeholder="Enter new username/handle" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Update Social Media</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<%-include("footer.ejs")%>

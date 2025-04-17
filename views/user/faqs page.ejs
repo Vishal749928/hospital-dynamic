@@ -1,0 +1,81 @@
+<%-include("Navbar.ejs")%>
+
+<!-- faqs -->
+<div class="container mt-5" data-aos="fade-up">
+    <h2 class="text-center text-primary">Frequently Asked Questions (FAQs)</h2>
+    <div class="accordion mt-3" id="faqAccordion">
+        
+        <%data.map((row,i)=>{%>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="<%-row.faqs_id%>">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#<%-i+20%>" aria-expanded="false" aria-controls="<%-i+20%>">
+                    <%-row.que%>
+                </button>
+            </h2>
+            <div id="<%-i+20%>" class="accordion-collapse collapse" aria-labelledby="<%-row.faqs_id%>" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    <%-row.ans%>
+                </div>
+            </div>
+        </div>
+
+        <%})%>
+    </div>
+</div>
+
+
+
+<div class="container mt-5" data-aos="fade-up">
+        <div class="feedback">
+    <h3 class="text-center text-primary">Give Your Feedback</h3>
+    <form action="/save_feedback" method="post">
+        <div class="mb-3 ">
+            <label for="name" class="form-label">Your Name</label>
+            <input type="text" class="form-control" name="name" placeholder="Enter your name" required>
+        </div>
+        <div class="mb-3 ">
+            <label for="review" class="form-label">Your Review</label>
+            <textarea class="form-control" name="review" rows="3" placeholder="Write your feedback" required></textarea>
+        </div>
+        <div class="mb-3 ">
+            <label class="form-label">Your Rating</label>
+            <select class="form-select" name="rating" required>
+                <option value="5">★★★★★ (5 Stars)</option>
+                <option value="4">★★★★☆ (4 Stars)</option>
+                <option value="3">★★★☆☆ (3 Stars)</option>
+                <option value="2">★★☆☆☆ (2 Stars)</option>
+                <option value="1">★☆☆☆☆ (1 Star)</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Submit Review</button>
+    </form>
+    </div>
+</div>
+
+
+
+<!-- patient review -->
+
+<div class="container p-5 mt-5" data-aos="fade-up" style="background-color: rgb(237, 237, 237); border-radius: 15px;">
+    <h2 class="text-center text-primary">Patient Reviews</h2>
+    <div class="row justify-content-center patient-review">
+        <%feed.map((row,i)=>{ %>
+
+        <div class="col-md-6">
+            <div class="card p-3 mb-3 shadow-sm">
+                <div class="card-body text-center">
+                    <p class="mb-1"><%-row.review%></p>
+                    <div class="star-rating"><%= '★'.repeat(row.rating) + '☆'.repeat(5 - row.rating) %></div>
+
+                    <h6 class="mt-2">-<%-row.name%></h6>
+                </div>
+            </div>
+        </div>
+
+        <%})%>
+
+    </div>
+</div>
+
+<%-include("Footer.ejs")%>

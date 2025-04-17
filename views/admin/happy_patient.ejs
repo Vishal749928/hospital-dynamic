@@ -1,0 +1,66 @@
+<%-include("navbar.ejs")%>
+
+
+<div class="container mt-5">
+    <div class="card shadow-lg p-4">
+        <h3 class="text-center mb-4">Update Happy Patient Section</h3>
+        <div class="tab-content mt-3">
+            <!-- Mobile Number -->
+            <div >
+                <form action="/admin/update_happy_patient" method="post">
+                    
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Happy Patient count</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                            <input type="number" name="happy_patient" placeholder="Happy Patient" required>
+                        </div>
+                        
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Patient Visit count</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                            <input type="number" name="patient_vist" placeholder=" Patient Visit" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Patient Like count</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                            <input type="number" name="patient_likes" placeholder=" Patient Likes" required>
+                        </div>
+                    </div>
+                    
+           
+                    <button type="submit" class="btn btn-primary w-100">Update count</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <table class="table table-bordered">
+            <tr>
+                <th>Sr.No.</th>
+                <th>Happy Patient Count</th>
+                <th>Patient Visite Count</th>
+                <th>Patient Likes Count</th>
+            </tr>
+            <%data.map((row,i)=>{ %>
+                <tr>
+                    <td><%-i+1%></td>
+                    <td><%-row.happy_patient%></td>
+                    <td><%-row.patient_visit%></td>
+                    <td><%-row.patient_likes%></td>
+                </tr>
+            <% }) %>
+            
+         
+    </table>
+</div>
+
+<%-include("footer.ejs")%>

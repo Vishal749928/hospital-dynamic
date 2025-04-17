@@ -1,0 +1,84 @@
+<%-include("Navbar.ejs")%>
+
+<div class="about_banner" >
+  <img src="user_assets/images/slideB.jpg" class="d-block" alt="Slide 2 ">
+  <div class="carousel-caption d-md-block">
+      <h2 class="text">Explore Our Services</h2>
+      <p class="text">We offer high-quality Services for your helth.</p>
+  </div>
+</div>
+
+  <!-- Header Section -->
+  <div class="header-banner" data-aos="fade-down">
+    <div class="container">
+      <h2 class="fw-bold text-success">Children's Eye Hospital Services</h2>
+      <p class="fs-5">We provide world-class eye care services for children with personalized attention and cutting-edge treatments.</p>
+    </div>
+  </div>
+
+  <!-- Services Section -->
+  <section class="container ">
+    <h2 class="text-center mb-4" data-aos="fade-in">Our Eye Care Services</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <!-- Service 1 -->
+      <div class="col" data-aos="fade-right">
+        <div class="card service-card shadow-lg">
+          <div class="card-body text-center">
+            <div class="service-icon mb-3">
+              <i class="bi bi-eye"></i>
+            </div>
+            <h5 class="card-title">Comprehensive Eye Exams</h5>
+            <p class="card-text">We offer thorough eye exams for children of all ages to detect any vision or eye health problems early.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 2 -->
+      <div class="col" data-aos="fade-up">
+        <div class="card service-card shadow-lg">
+          <div class="card-body text-center">
+            <div class="service-icon mb-3">
+              <i class="bi bi-gear"></i>
+            </div>
+            <h5 class="card-title">Eye Surgery & Treatment</h5>
+            <p class="card-text">Our experienced pediatric ophthalmologists perform delicate surgeries to correct various eye conditions.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 3 -->
+      <div class="col" data-aos="fade-left">
+        <div class="card service-card shadow-lg">
+          <div class="card-body text-center">
+            <div class="service-icon mb-3">
+              <i class="bi bi-heart"></i>
+            </div>
+            <h5 class="card-title">Pediatric Vision Therapy</h5>
+            <p class="card-text">We provide personalized vision therapy programs to help children improve their visual skills.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<div class="container  mt-5 home_about_main">
+      
+            <h1 class="home_about_heding text-success" data-aos="fade-down">Hospital Specialties</h1><br><br><br>
+         
+         <%services.map((row,i)=>{ %>
+
+         <div class="row" id="section2">
+             <div class="col-md-6 home_about1" data-aos="fade-down">
+           <h3 class="home_about_heding text-primary fw-bold"><%-row.heading%></h3>
+              <%-row.information%>
+           <br><br>
+             </div>
+             <div class="col-md-6 home_about" data-aos="fade-right">
+                <img src="/uploads/<%-row.services_image%>" width="100%">
+             </div>
+         </div>
+         <%})%>
+
+</div>
+
+<%-include("Footer.ejs")%>
